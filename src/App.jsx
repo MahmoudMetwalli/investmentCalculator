@@ -31,7 +31,9 @@ function App() {
         handleUserInputChange={handleUserInputChange}
         userInput={userInput}
       />
-      <ResultsTable annualData={annualData} userInput={userInput} />
+      {annualData.length && (
+        <ResultsTable annualData={annualData} userInput={userInput} />
+      )}
     </>
   );
 }
