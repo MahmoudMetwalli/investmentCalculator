@@ -31,8 +31,12 @@ function App() {
         handleUserInputChange={handleUserInputChange}
         userInput={userInput}
       />
-      {annualData.length && (
+      {annualData.length !== 0 ? (
         <ResultsTable annualData={annualData} userInput={userInput} />
+      ) : (
+        <p className="center">
+          Please enter your investment details to get started.
+        </p>
       )}
     </>
   );
