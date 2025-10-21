@@ -1,6 +1,5 @@
 import UserInput from "./components/UserInput";
 import ResultsTable from "./components/ResultsTable";
-import { calculateInvestmentResults } from "./util/investment";
 import { useState } from "react";
 
 function App() {
@@ -10,12 +9,7 @@ function App() {
     "expected return": 0,
     duration: 0,
   });
-  const annualData = calculateInvestmentResults({
-    initialInvestment: userInput["initial investment"],
-    annualInvestment: userInput["annual investment"],
-    expectedReturn: userInput["expected return"],
-    duration: userInput["duration"],
-  });
+
   function handleUserInputChange(label, value) {
     setUserInput((prevState) => {
       const updatedState = {
@@ -31,13 +25,7 @@ function App() {
         handleUserInputChange={handleUserInputChange}
         userInput={userInput}
       />
-      {annualData.length !== 0 ? (
-        <ResultsTable annualData={annualData} userInput={userInput} />
-      ) : (
-        <p className="center">
-          Please enter your investment details to get started.
-        </p>
-      )}
+      <ResultsTable userInput={userInput} />
     </>
   );
 }

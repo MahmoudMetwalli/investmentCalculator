@@ -13,9 +13,9 @@ export default function InputField({
   }
 
   return (
-    <div>
+    <p>
       <label>{label}</label>
       <input type="number" value={fieldValue} onChange={handleValueChange} />
-    </div>
+    </p>
   );
 }
